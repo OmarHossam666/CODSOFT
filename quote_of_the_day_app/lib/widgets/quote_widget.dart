@@ -2,23 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuoteWidget extends StatelessWidget {
-  var quote = "";
-  var author = "";
-  var onShareClick;
-  var onLikeClick;
-  var onNextClick;
-  var onPreviousClick;
-  var pageColor;
+  final String quote;
+  final String author;
+  final VoidCallback? onShareClick;
+  final VoidCallback? onLikeClick;
+  final VoidCallback? onNextClick;
+  final VoidCallback? onPreviousClick;
+  final Color pageColor;
 
-  QuoteWidget(
-      {super.key,
-      this.pageColor,
-      required this.quote,
-      required this.author,
-      required this.onNextClick,
-      required this.onPreviousClick,
-      required this.onShareClick,
-      required this.onLikeClick});
+  const QuoteWidget({
+    super.key,
+    required this.pageColor,
+    required this.quote,
+    required this.author,
+    required this.onNextClick,
+    required this.onPreviousClick,
+    required this.onShareClick,
+    required this.onLikeClick
+    });
 
   @override
   Widget build(BuildContext context) {

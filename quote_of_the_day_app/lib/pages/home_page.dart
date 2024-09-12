@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:quote_of_the_day_app/models/quote_model.dart';
 import 'package:quote_of_the_day_app/widgets/quote_widget.dart';
 import 'package:random_color/random_color.dart';
+import 'package:share_plus/share_plus.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -58,18 +59,30 @@ class HomePageState extends State<HomePage> {
                         return QuoteWidget(
                           quote: model.q.toString(),
                           author: model.a.toString(),
-                          onPreviousClick: () {},
+                          onPreviousClick: () {
+                            controller.previousPage(
+                              duration:  const Duration(milliseconds: 100),
+                              curve: Curves.easeInBack
+                            );
+                          },
                           onNextClick: () {
                             controller.nextPage(
                                 duration: const Duration(milliseconds: 100),
-                                curve: Curves.easeIn);
+                                curve: Curves.easeIn
+                              );
                           },
                           pageColor: _randomColor.randomColor(
                             colorHue: ColorHue.multiple(
                               colorHues: [ColorHue.red, ColorHue.blue],
                             ),
                           ),
-                          onShareClick: null,
+                          onShareClick: () async {
+                            final quote = snapshot.data![index].q.toString();
+                            final author = snapshot.data![index].a.toString();
+                            final text = '"$quote" - $author';
+
+                            await Share.share(text);
+                          },
                           onLikeClick: null,
                         );
                       }),
@@ -100,7 +113,6 @@ class HomePageState extends State<HomePage> {
                             ),
                           ),
                         InkWell(
-                          // onTap: onLikeClick,
                           child: Container(
                             margin: const EdgeInsets.only(left: 10),
                             decoration: BoxDecoration(
@@ -115,7 +127,6 @@ class HomePageState extends State<HomePage> {
                           ),
                         ),
                         InkWell(
-                          // onTap: onShareClick,
                           child: Container(
                             margin: const EdgeInsets.only(left: 10),
                             decoration: BoxDecoration(

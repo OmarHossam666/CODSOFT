@@ -38,6 +38,13 @@ dependencies:
   http: ^1.2.2
   random_color: ^1.0.6-nullsafety
   google_fonts: ^6.2.1
+  share_plus: ^10.0.2
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon.png"
 
 dev_dependencies:
   flutter_test:
