@@ -56,11 +56,21 @@ class IntroPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                child: const Text(
-                  "Let's Go!",
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Let's Go!",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(width: 5),
+                    Icon(
+                      Icons.run_circle,
+                      color: Colors.white,
+                    )
+                  ],
                 ),
               ),
             ),
