@@ -8,7 +8,7 @@ class QuoteWidget extends StatefulWidget {
   final String author;
   final Color pageColor;
 
-  QuoteWidget({
+  const QuoteWidget({
     super.key,
     required this.pageColor,
     required this.quote,
