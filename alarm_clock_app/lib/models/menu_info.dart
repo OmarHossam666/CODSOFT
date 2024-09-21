@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-import 'enums.dart';
+import '../enums.dart';
 
 class MenuInfo extends ChangeNotifier {
   MenuInfo(this.menuType , {this.title ,this.imageSource});
